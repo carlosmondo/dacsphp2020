@@ -3,7 +3,7 @@
     
     $con = mysqli_connect("localhost","bob","bob","univille");
     
-    $delete = "delete from cliente where codigo = ?;";
+    $delete = "delete from albuns where id = ?;";
     $stmt = mysqli_prepare($con, $delete);
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);

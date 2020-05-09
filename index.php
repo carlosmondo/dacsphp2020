@@ -5,10 +5,10 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="CRUD Web">
+  <meta name="author" content="Carlos Mondo">
 
-  <title>Heroic Features - Start Bootstrap Template</title>
+  <title>Listagem de Albuns Ouvidos</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="index.php">Início</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,20 +52,21 @@
     
     <?php
       $con = mysqli_connect("localhost","bob","bob","univille");
-      $sql = "select * from cliente";
+      $sql = "select * from albuns";
 	    $result = mysqli_query($con,$sql);
     ?>
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
       <p class="lead">
-        <a href="form_cliente.php" class="btn btn-primary">Incluir</a>
-        <h3>Listagem de clientes</h3>
+        <a href="form_album.php" class="btn btn-primary">Incluir</a>
+        <h3>Listagem de albuns</h3>
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Endereço</th>
+              <th scope="col">Id</th>
+              <th scope="col">Artista</th>
+              <th scope="col">Album</th>
+              <th scope="col">Gêneros</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -77,9 +78,10 @@
               <td><?=$row[0]?></td>
               <td><?=$row[1]?></td>
               <td><?=$row[2]?></td>
+              <td><?=$row[3]?></td>
               <td>
-                <a href="form_cliente.php?id=<?=$row[0]?>" class="btn btn-primary">Alterar</a>
-                <a href="confirm_remove_cliente.php?id=<?=$row[0]?>" class="btn btn-warning">Deletar</a>
+                <a href="form_album.php?id=<?=$row[0]?>" class="btn btn-primary">Alterar</a>
+                <a href="confirm_remove_album.php?id=<?=$row[0]?>" class="btn btn-warning">Deletar</a>
               </td>
             </tr>
             <?php
