@@ -58,7 +58,7 @@
     $id=0;
     $artista="";
     $nome="";
-    $genero=0;
+    $genero="";
    
     if(isset($_GET["id"])){
       $id = (int) $_GET["id"];
