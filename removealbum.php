@@ -1,7 +1,7 @@
 <?php
     $id = (int) $_GET["id"];
     
-    $con = mysqli_connect("localhost","bob","bob","univille");
+    include 'dbconnect.php';
     
     $delete = "delete from albuns where id = ?;";
     $stmt = mysqli_prepare($con, $delete);

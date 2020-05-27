@@ -54,11 +54,11 @@
   
   
   <?php
-    $con = mysqli_connect("localhost","bob","bob","univille");
+    include 'dbconnect.php';
     $id=0;
-    $artista="";
-    $nome="";
-    $genero="";
+    $artist="";
+    $name="";
+    $genre="";
    
     if(isset($_GET["id"])){
       $id = (int) $_GET["id"];
@@ -70,9 +70,9 @@
       $result = mysqli_stmt_get_result($stmt);
       $row = $result->fetch_assoc();
       $id=$row["id"];
-      $artista=$row["artista"];
-      $nome=$row["name"];
-      $genero=$row["genero"];
+      $artist=$row["artist"];
+      $name=$row["name"];
+      $genre=$row["genre"];
     }
   ?>
   
@@ -85,21 +85,21 @@
         <h3>Albuns</h3>
         <form method="post" action="savealbum.php">
           
-          <input type="hidden" name="Id" value="<?=$id?>"/>
+          <input type="hidden" name="id" value="<?=$id?>"/>
           <div class="form-group">
-            <label for="inputArtista">Artista</label>
-            <input type="text" class="form-control" id="inputArtista" 
-              name="inputArtista" value="<?=$artista?>"/>
+            <label for="inputArtist">Artista</label>
+            <input type="text" class="form-control" id="inputArtist" 
+              name="inputArtist" value="<?=$artist?>"/>
           </div>
           <div class="form-group">
-            <label for="inputNome">Nome</label>
-            <input type="text" class="form-control" id="inputNome" 
-              name="inputNome" value="<?=$nome?>"/>
+            <label for="inputName">Nome</label>
+            <input type="text" class="form-control" id="inputName" 
+              name="inputName" value="<?=$name?>"/>
           </div>
           <div class="form-group">
-            <label for="inputGenero">Gênero</label>
-            <input type="text" class="form-control" id="inputGenero" 
-              name="inputGenero" value="<?=$genero?>"/>
+            <label for="inputGenre">Gênero</label>
+            <input type="text" class="form-control" id="inputGenre" 
+              name="inputGenre" value="<?=$genre?>"/>
           </div>
           <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
