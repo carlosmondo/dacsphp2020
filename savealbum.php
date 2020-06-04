@@ -1,10 +1,11 @@
 <?php
+    include 'dbconnect.php';
+    
     $id = (int) $_POST["id"];
     $artist = $_POST["inputArtist"];
     $name = $_POST["inputName"];
     $genre = $_POST["inputGenre"];
     
-    include 'dbconnect.php';
     
     if($id == 0){
         $insert = "insert into albuns(artist, name, genre) values(?, ?, ?);";

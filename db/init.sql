@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS univille;
+
+USE univille;
+
+
+CREATE TABLE IF NOT EXISTS `albuns` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `artist` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `genre` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
+
+GRANT ALL PRIVILEGES ON univille.* TO 'root'@'%' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
+
+GRANT ALL PRIVILEGES ON univille.* TO 'bob'@'%' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;

@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+   appphp2020mondo:
+     depends_on:
+       - dbmondo  
+     image: carlosmondo/appphp2020:latest
+     ports:
+       - "8080:80"
+     restart: always
+     environment:
+       - DB_HOST=dbmondo
+       - DB_USER=root
+       - DB_PASSWORD=bob
+       - DB_NAME=univille
+   dbmondo:
+     image: mysql:5.7
+     restart: always
+#     ports:
+#       - "3306:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: bob
+       MYSQL_DATABASE: univille
+       MYSQL_USER: bob
+       MYSQL_PASSWORD: bob
+     volumes:
+       - ./db/:/docker-entrypoint-initdb.d

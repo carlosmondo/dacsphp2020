@@ -1,7 +1,7 @@
 <?php
-    $id = (int) $_GET["id"];
-    
     include 'dbconnect.php';
+    
+    $id = (int) $_GET["id"];
     
     $delete = "delete from albuns where id = ?;";
     $stmt = mysqli_prepare($con, $delete);
